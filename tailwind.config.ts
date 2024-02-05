@@ -18,6 +18,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        anekBangla: ['var(--font-anek-bangla)'],
+        notoSansBengali: ['var(--font-noto-sans-bengali)'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
