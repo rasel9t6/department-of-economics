@@ -13,7 +13,7 @@ const images = [
 export default function Home() {
   return (
     <div className='flex w-[90%] justify-center mx-auto relative h-screen'>
-      <h1 className='text-5xl mt-10 font-extrabold absolute z-10 flex justify-center'>
+      <h1 className='text-5xl text-primary-500 mt-10 font-extrabold absolute z-10 flex justify-center'>
         অর্থনীতি বিভাগ
       </h1>
       <Carousel images={images} />

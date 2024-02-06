@@ -29,21 +29,29 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         alignItems: 'center',
       }}
     >
-      <motion.img
-        key={currentIndex}
-        src={`/images/${images[currentIndex]}`}
-        alt={`Slide ${currentIndex + 1}`}
-        style={{
-          width: '100%',
-          height: 'auto',
-          filter: 'brightness(35%)',
-          objectFit: 'cover',
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      />
+      {images.map((image, index) => (
+        <motion.img
+          key={index}
+          src={`/images/${image}`}
+          alt={`Slide ${index + 1}`}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: `${(index - currentIndex) * 100}%`, // Translate images horizontally based on currentIndex
+            width: '100%',
+            height: '100%',
+            filter: 'brightness(35%)',
+            objectFit: 'cover',
+          }}
+          initial={{
+            x: `${(index - currentIndex) * 100 + 100}%`,
+            opacity: 0.5,
+          }} // Initial position off-screen to the right
+          animate={{ x: `${(index - currentIndex) * 100}%`, opacity: 1 }} // Animation to slide the image to the center
+          exit={{ x: `${(index - currentIndex) * 100 - 100}%`, opacity: 0.5 }} // Animation to slide the image out to the left
+          transition={{ duration: 1 }} // Animation duration
+        />
+      ))}
     </div>
   );
 };
