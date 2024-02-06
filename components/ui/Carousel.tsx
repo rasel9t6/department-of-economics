@@ -1,13 +1,13 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface CarouselProps {
   images: string[];
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -18,39 +18,24 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   }, [images.length]);
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '600px',
-        overflow: 'hidden',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <div className='relative w-full h-[500px] xl:h-[700px] overflow-hidden flex justify-center items-center'>
       {images.map((image, index) => (
-        <motion.img
+        <div
           key={index}
-          src={`/images/${image}`}
-          alt={`Slide ${index + 1}`}
+          className={`absolute w-full  h-full transition-transform ${
+            index === currentIndex ? 'translate-x-0' : 'translate-x-full'
+          }`}
           style={{
-            position: 'absolute',
-            top: 0,
-            left: `${(index - currentIndex) * 100}%`, // Translate images horizontally based on currentIndex
-            width: '100%',
-            height: '100%',
             filter: 'brightness(35%)',
-            objectFit: 'cover',
           }}
-          initial={{
-            x: `${(index - currentIndex) * 100 + 100}%`,
-            opacity: 0.5,
-          }} // Initial position off-screen to the right
-          animate={{ x: `${(index - currentIndex) * 100}%`, opacity: 1 }} // Animation to slide the image to the center
-          exit={{ x: `${(index - currentIndex) * 100 - 100}%`, opacity: 0.5 }} // Animation to slide the image out to the left
-          transition={{ duration: 1 }} // Animation duration
-        />
+        >
+          <Image
+            src={`/images/${image}`}
+            alt={`Slide ${index + 1}`}
+            fill
+            className='object-cover'
+          />
+        </div>
       ))}
     </div>
   );

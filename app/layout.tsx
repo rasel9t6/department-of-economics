@@ -22,6 +22,7 @@ const noto_sans_bengali = Noto_Sans_Bengali({
 export const metadata: Metadata = {
   title: 'NGC | Department of Economics',
   description: 'Department of Economics',
+  icons: '/app/favicon.ico',
 };
 
 export default function RootLayout({

@@ -5,18 +5,18 @@ import { FaHome } from 'react-icons/fa';
 
 export default function Navbar() {
   return (
-    <nav className='flex justify-between items-center w-full fixed z-50 py-6 px-10'>
+    <nav className='flex background-light900_dark200 shadow-light-300 dark:shadow-none justify-between items-center w-full fixed z-50 py-6 px-10'>
       <Link
         href='/'
-        className='flex items-center gap-1'
+        className='flex items-center gap-3'
       >
         <Image
           src='/assets/logo.ico'
-          width={30}
-          height={30}
+          width={50}
+          height={50}
           alt='NGC'
         />
-        <p className='font-bold'>
+        <p className='h2-bold text-dark-100 dark:text-light-900 '>
           Department of <span className='text-primary-500'>Economics</span>
         </p>
       </Link>
