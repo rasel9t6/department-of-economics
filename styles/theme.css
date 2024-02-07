@@ -22,6 +22,9 @@
   .background-light800_dark400 {
     @apply bg-light-800 dark:bg-dark-400 !important;
   }
+  .background-light800_dark200 {
+    @apply bg-light-800 dark:bg-dark-200 !important;
+  }
 
   .background-light700_dark400 {
     @apply bg-light-700 dark:bg-dark-400;
@@ -96,7 +99,7 @@
   }
 
   .light-border-2 {
-    @apply border-light-700 dark:border-dark-400 !important;
+    @apply border-light-700 dark:border-dark-100 !important;
   }
 
   .h1-bold {

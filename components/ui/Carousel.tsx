@@ -26,7 +26,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
             index === currentIndex ? 'translate-x-0' : 'translate-x-full'
           }`}
           style={{
-            filter: 'brightness(35%)',
+            filter: 'brightness(30%)',
           }}
         >
           <Image
